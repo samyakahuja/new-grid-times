@@ -21,13 +21,14 @@ const Wrapper = styled.div`
 
 const Link = styled.a`
   font-family: var(--font-family-logo);
-  font-size: 3rem;
+  font-size: clamp(3rem, 10vw, 4rem);
 `;
 
 const TodaysDate = styled.p`
   font-size: 1.125rem;
   font-weight: var(--font-weight-medium);
   margin-top: -1rem;
+  color: var(--color-gray-900);
 `;
 
 export default Logo;
