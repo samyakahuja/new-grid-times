@@ -9,6 +9,7 @@ import SecondaryStory from "../SecondaryStory";
 import OpinionStory from "../OpinionStory";
 import Advertisement from "../Advertisement";
 import { QUERIES } from "../../constants";
+import { createBorder } from "../../utils";
 
 const MainStoryGrid = () => {
   return (
@@ -40,12 +41,6 @@ const MainStoryGrid = () => {
     </Wrapper>
   );
 };
-
-const createBorder = ({ position, borderWidth = 1, spacing = 16 }) => `
-  border-${position}: ${borderWidth}px solid var(--color-gray-300);
-  padding-${position}: ${spacing}px;
-  margin-${position}: ${spacing}px;
-`;
 
 const Wrapper = styled.div`
   display: grid;

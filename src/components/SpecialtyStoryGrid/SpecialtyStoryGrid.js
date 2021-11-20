@@ -1,11 +1,13 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from "react";
+import styled from "styled-components/macro";
 
-import { MARKET_DATA, SPORTS_STORIES } from '../../data';
+import { MARKET_DATA, SPORTS_STORIES } from "../../data";
 
-import MarketCard from '../MarketCard';
-import SectionTitle from '../SectionTitle';
-import MiniStory from '../MiniStory';
+import MarketCard from "../MarketCard";
+import SectionTitle from "../SectionTitle";
+import MiniStory from "../MiniStory";
+import { QUERIES } from "../../constants";
+import { createBorder } from "../../utils";
 
 const SpecialtyStoryGrid = () => {
   return (
@@ -13,8 +15,8 @@ const SpecialtyStoryGrid = () => {
       <MarketsSection>
         <SectionTitle
           cornerLink={{
-            href: '/markets',
-            content: 'Visit Markets data »',
+            href: "/markets",
+            content: "Visit Markets data »",
           }}
         >
           Markets
@@ -28,8 +30,8 @@ const SpecialtyStoryGrid = () => {
       <SportsSection>
         <SectionTitle
           cornerLink={{
-            href: '/sports',
-            content: 'Visit Sports page »',
+            href: "/sports",
+            content: "Visit Sports page »",
           }}
         >
           Sports
@@ -47,14 +49,40 @@ const SpecialtyStoryGrid = () => {
 const Wrapper = styled.div`
   display: grid;
   gap: 48px;
+
+  @media ${QUERIES.laptopAndUp} {
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
 `;
 
 const MarketsSection = styled.section``;
 
-const MarketCards = styled.div``;
+const MarketCards = styled.div`
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+`;
 
-const SportsSection = styled.section``;
+const SportsSection = styled.section`
+  overflow: auto;
 
-const SportsStories = styled.div``;
+  @media ${QUERIES.laptopAndUp} {
+    ${createBorder({ position: "left" })}
+  }
+`;
+
+const SportsStories = styled.div`
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+
+  @media ${QUERIES.tabletAndUp} {
+    display: flex;
+    gap: 16px;
+    overflow: auto;
+    padding-bottom: 16px;
+  }
+`;
 
 export default SpecialtyStoryGrid;
